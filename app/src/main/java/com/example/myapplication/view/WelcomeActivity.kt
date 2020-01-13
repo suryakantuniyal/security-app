@@ -27,7 +27,7 @@ class WelcomeActivity : AppCompatActivity() {
         val signout = findViewById(R.id.logout_btn) as Button
 
         username_wc!!.text = "Welcome "+ preferenceHelper!!.getNames()
-        location_wc!!.setText("Your Location is " +preferenceHelper!!.getHobbys())
+        location_wc!!.setText("Your Location is " +preferenceHelper!!.getLocation())
 
 
         signout?.setOnClickListener{

@@ -100,7 +100,7 @@ class LoginActivity : AppCompatActivity() {
                 for (i in 0 until dataArray.length()) {
                     val dataObj = dataArray.getJSONObject(i)
                     preferenceHelper!!.putName(dataObj.getString("name"))
-                    preferenceHelper!!.putHobby(dataObj.getString("hobby"))
+                    preferenceHelper!!.putLocation(dataObj.getString("location"))
                 }
 
             }

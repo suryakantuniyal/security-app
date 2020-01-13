@@ -44,8 +44,8 @@ class Registration : AppCompatActivity() {
         val indian_states = resources.getStringArray(R.array.india_states)
 
         val adapter = ArrayAdapter(this,
-            android.R.layout.simple_dropdown_item_1line,indian_states)
-        userLocation!!.setAdapter(adapter)
+            android.R.layout.simple_expandable_list_item_1,indian_states)
+        userLocation!!.setAdapter<ArrayAdapter<String>?>(adapter)
 
 
         login_tv?.setOnClickListener {
@@ -111,7 +111,7 @@ class Registration : AppCompatActivity() {
          try {
 
              val jsonObject = JSONObject(response)
-             if (jsonObject.getString("message") == "CREATED") {
+             if (jsonObject.getString("status") == "true") {
                  val dataArray = jsonObject.getJSONArray("data")
                  for (i in 0 until dataArray.length()) {
 
@@ -130,7 +130,7 @@ class Registration : AppCompatActivity() {
     fun isSuccess(response: String): Boolean {
         try {
             val jsonObject = JSONObject(response)
-            return if (jsonObject.optString("message") == "CREATED") {
+            return if (jsonObject.optString("status") == "true") {
                 true
             } else {
 
